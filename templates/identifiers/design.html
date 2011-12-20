@@ -1,0 +1,126 @@
+{% extends "home.html" %}
+
+{% block designdoc %}
+    <h2>Design Explanation</h2>
+    <p>Welcome to <font style="color:#aad">inflatR.com</font>.  This website
+    combines my interest of economics and finace with the growing interest in
+    computer science and computer programming.   After a first time
+    experience in the hacking realm at San Francisco Science Hack Day in
+    November 2011, I found myself interested in using Python with and d3.js
+    for my website application.  Allow me to walk you through the technicals of
+    my CS50 project.
+    </p>
+    <p>With the help of Django for Python, as well as their very detailed
+    tutorials and references at djangoproject.org, I was able to put together
+    <font style="color:#aad">inflatR.com</font> with some major difficulty.
+    Nothing comes easy when learning new languages after being a
+    programming n00b to begin with.  For my benefit and yours, I will walk 
+    you through each file that feeds into this website, as well as
+    periphary files and data feeder files.
+    </p>
+    <p><font style="color:#aad">home.html</font>, which points directly to
+    <font style="color:#aad">inflatR.com</font>, is the homepage.  The
+    homepage refers to my CSS stylesheet, form templates derived from
+    Django, which themselves are derived from python files.  The
+    <font style="color:#aad">home.html</font> basically serves as a
+    template for my Django form.
+    </p>
+    <p>I first created a database "demographics_and_expenses", with the help
+    of Django, using SQLite3. Here, I just physically coded within the Django
+    shell each table: Identifier, IdfrChoice, Expense, ExpChoice.  Identifier
+    is comprised of demographic questions (i.e. gender, age, etc), with a
+    relationship with IdfrChoice (i.e. female/male, under 18/19-29, etc).
+    This is vary similar to how Expense (i.e. housing: rent/own,
+    transportation) and ExpChoice (i.e. rent = less than $500 month, $500-$750)
+    are set up.  These tables are used for the form selections in the <font
+    style="color:#aad">home.html</font> template.  Also, these tables match
+    exactly to the file <font style="color:#aad">inflation_parameters/
+    models.py</font>
+    </p>
+    <p>I later uploaded the InflationData table to the SQLite3 database.
+    First, I downloaded a txt file of the data from the bls.gov website.  I
+    then created <font style="color:#aad">parser.py</font> to parse through
+    the data to get into the format that SQLite would read.  To create the
+    output file, I just ran the program command line with > scrubbeddata.txt
+    to my file directory.  The parser file calls on two other files, items
+    and area_names.  I use these two files to help my super secret decoder
+    ring (aka parser) since the original data had ID numbers that were not
+    intuitive when referencing geographical areas (area_names) or inflation
+    items measured (items). Note that a file named "__init__.py" for area_names.py
+    and items.py each within their respective directories is required
+    for other python files to import.  I just created a blank one, while other
+    init files were created automatically with Django.
+    </p>
+    <p>Once the data was scrubbed, I created a table in my database through
+    Django's SQLite shell with the parameters that match <font style=
+    "color:#aad">inflation_parameters/models.py</font> I uploaded it using
+    the Django command line SQLite operations in the shell.  It took a
+    couple, okay a gazillion of trials to successfully upload the data.  And
+    there's a spelling typo (can you find it? hint = where's the liberty bell?).
+    </p>
+    <p>The <font style="color:#aad">inflation_parameters/models.py</font> was
+    developed to refer to the parameters in the database.  This file is imported
+    into <font style="color:#aad">formulas.py, forms.py, view.py, urls.py,
+    inflation_parameters/urls.py, and admin.py</font>.  <font style=
+    "color:#aad">admin.py</font> is used to access the web interface of the
+    database.  The code in <font style="color:#aad">admin.py</font> allow for
+    views to be defined within the database.  <font style="color:#aad">
+    urls.py and inflation_parameters/urls.py</font> are used to direct the
+    templates if someone were to key in: <font style="color:#aad">
+    inflatR.com/inflation_parameters/1</font>, which would direct the user to
+    the first page of the form.  However, this isn't the intended experience,
+    as explained in my <font style="color:#aad">documentation.html</font>file.
+    The <font style="color:#aad">views.py</font> file lists the views of this
+    application.  The "detail", connected to <font style="color:#aad">wizard.html
+    </font> is for the questions of the form that is pointed to the <font
+    style="color:#aad">home.html</font> template; the "results" are similar,
+    connected to <font style="color:#aad">results.html</font>and provide for
+    the graphing detail of the form submission.
+    </p>
+    <p>The <font style="color:#aad">forms.py</font> uses Django's FormWizard
+    application.  This file has everything but the kitchen sink imported into it.
+    It's save to say that the creator of this application was editting this by
+    trial & error, and did not want to remove anything for fear of breakage.
+    Each class within forms.py defined represents a separate page, so the user
+    does not have to be redirected to a new page after each submission.
+    FormWizard collects each page's information with the POST method.  The
+    data collected then lives in Django's "form_list", which the last class,
+    ParameterWizard, uses to pass through personalized_inflation(), defined
+    in <font style="color:#aad">formulas.py</font>.  
+    <p><font style="color:#aad">formulas.py</font> is the bane of my
+    existance.  Essentially, it grabs the user's data that he/she inputted
+    through the form, as well as SQLite Django queries of InflationData,
+    and uses the aggregated data to calculate a personalized inflation
+    estimation, to be spat back to <font style="color:#aad">form.py</font>.
+    Then <font style="color:#aad">forms.py</font> redirects from the wizard
+    template to the results template.  The <font style="color:#aad">
+    home.html</font> is meant to update with the template tags to provide
+    a seemless experience for the user.
+    </p>
+    <p>The graph output was inspired by <font style="color:#aad">d3.js</font>.
+    The template was adapted from <a href="http://janwillemtulp.com/d3linechart"
+    style="text-decoration:none">http://janwillemtulp.com/d3linechart</a>.  The
+    results from the <font style="color:#aad">form.py</font> feeds into the
+    results template, where the data is then graphed using javascript.  Please
+    see <a href='/documentation.html'>Documentation</a> for information regarding
+    user experience and intended updates/known issues.  Also, if curious, refer to
+    <a href='/calculations.html'>Calculations</a> to read about how inflation is
+    calculated for the user.
+    </p>
+    <p>Other files included are <font style="color:#aad">settings.py</font> and
+    <font style="color:#aad">manage.py</font>.  Manage.py is a Django python file,
+    where I did not edit/touch/look at, but envoked when managing the local server,
+    Django shell and SQLite shell.  Settings.py is where all the settings are
+    defined for this project.  It was mostly filled out by Django's presettings,
+    and I added my form project to "INSTALLED_APPS", initiated and connect the
+    SQLite database, "demographics_and_expenses", mapped to the static data under
+    "STATIC_URL" for css and js files, and enabled the CACHE database for
+    form submitting.
+    </p>
+    <p>Finally, the application was uploaded to webfactor since they provide
+    information and support for Django web applications.  Please note that this
+    application does not live on the cs50 cloud, as originally indicated in the
+    project proposal.
+    </p>
+    <p>Enjoy.</p>
+{% endblock %}

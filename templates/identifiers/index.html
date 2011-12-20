@@ -1,0 +1,9 @@
+{% if latest_identifier_list %}
+    <ul>
+    {% for identifier in latest_identifier_list %}
+        <li><a href="/inflation_parameters/{{ identifier.id }}/">{{ identifier.question }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No identifiers are available.</p>
+{% endif %}

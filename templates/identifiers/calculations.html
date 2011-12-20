@@ -1,0 +1,39 @@
+{% extends "home.html" %}
+
+{% block designdoc %}
+    <h2>Inflation Calculations Explanation</h2>
+    <p>To give you a brief overview of the calculations used here with inflatR,
+    let it be known that this site was not made geared towards accuracy of an
+    estimation, but more so the technical aspects of producing such a website.
+    Let it also be known that the estimation process will be refined as time
+    goes on.  The creater had a tight deadline to make, and bit off more than she
+    could chew. :]
+    </p>
+    <p>First, the user data is given a weight that is calculated by the amount
+    of individual monthly expenses over monthly salary.  Then the appropriate
+    query is made off of the application's database to calculate the inflation rate
+    of one expense parameter over two consecutive years.  Last, the inflation rate
+    multiplied by the weight of each expense parameter is summed to provide an
+    overall rate between two years.
+    </p>
+    <p>Unfortunately, due to the nature of the form, the user's monthly
+    expenses are not exact.  If one had a rental expense of $1650/month, a range
+    is selected.  The upper limit of that range is then selected to calculate the
+    weight over salary.  In the future, this limitation will corrected to allow
+    for actual user input.
+    </p>
+    <p>Also, due to the nature of the available data from the Bureau of Labor
+    Statistics, not all regions have the same granular detail of items measured,
+    nor is each region measured in the same time intervals.  Because of this,
+    the expense parameters are matched up with the highest-level of inflation
+    series item measured by the BLS.  For instance, if the user had monthly
+    tuition expenses, it would fall under the broad bucket of "Education and
+    communcation."  While parameter selections might be refined, this is
+    ultimately reliant on the data that the BLS provides.  Perhaps additional/supplementary
+    data can be pulled from other sources.
+    </p>
+    <p>Lastly, if anyone has a better way to estimate inflation, as opposed to
+    weighting expense inflation rates according to percentage of monthly salary,
+    <a href="mailto:erin_dot_lynn_dot_root_at_gmail_dot_com">let's here it</a>.
+    <p>Enjoy.</p>
+{% endblock %}

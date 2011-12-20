@@ -1,0 +1,21 @@
+{% extends "home.html" %}
+{{ foo }}
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif%}
+
+{% block head %}
+    {{ wizard.form.media }}
+{% endblock %}
+
+{% block content %}
+<h2><font size="2px">Enter your information.  Know that your expenses are <font color="#aad">monthly.</font></font></h2>
+<h2><font size="2px">Step <font color="#aad">{{ step }}</font> of <font color="#aad">{{ step_count }}</font></font></h2>
+<form action="." method="post">{% csrf_token %}
+<table>
+    {{ form }}
+</table>
+<input type="hidden" name="{{ step_field }}" value=" {{ step0 }}" />
+{{ previous_fields|safe }}
+<input type="submit">
+</form>
+
+{% endblock %}

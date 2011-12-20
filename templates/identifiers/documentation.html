@@ -1,0 +1,52 @@
+{% extends "home.html" %}
+
+{% block designdoc %}
+    <h2>Documentation</h2>
+    <p>Guide yourself through each step of the form.  After all steps are
+    completed, the magic built into this site will spit out your estimated
+    personalized inflation
+    </p>
+    <p>First, select your respective demographics in step 1.</p>
+    <p>Next, with steps 2-10, select your respective expenses that you incur on
+    a monthly basis.  Note that <b>every</b> form field is required.  This site will
+    not let you continue without every field containing a selection.
+    </p>
+    <p>After the final step, click submit.  The form will be posted to the site,
+    where it will take your information that you inputted and output a graph
+    depicting an estimation of your personalized inflation.
+    </p>
+    <p>You may be interested in reading what the <a href="http://www.bls.gov/cpi/cpifact5.htm">
+    Bureau of Labor Statistics</a> has to say about how the individual experiences
+    inflation, but it doesn't look as pretty as this site.
+    </p>
+    <h2>Updates in the pipeline</h2>
+    <p>First, the graph output will be refined to show the appropriate x-axis
+    labels of the years.  Also, for reference, US and Region inflation for the
+    year range will also populate.
+    </p>
+    <p>Next, the results output will be prettied to show the inflation in the
+    correct format, that is XX.X%, rather than an number with 10+
+    decimal points that may confuse you.
+    </p>
+    <p>As for the form itself, it isn't that pretty.  And it is quite annoying
+    how many submits one must go through to get to the results.  Radio select
+    buttons or user-inputted fields will be implemented once the designer
+    learns how.  Parameter descriptions will be most helpful too.  For instance,
+    gas could either mean gasoline, or natural gas (it's gasoline, by the way).
+    </p>
+    <p>Lastly, the formalas for inflation need to be greatly refined.  Because
+    the Bureau of Labor Statistics enjoys publishing obfuscatory data, it needs
+    to be combed better in order to produce a better estimate of your
+    inflation.  Currently, all Education expenses, including books and tuition,
+    are mapped to "Education and communication" data giving by the BLS.  Some
+    regions have more refined data, yet currently the formulas default to the
+    lowest level of data applicable for <i>every</i> region, which unfortunately
+    is pretty high level data.  Consider the current format to be a template for
+    future refinement.
+    </p>
+    <p>Please feel free to suggest implementations, formula calculations, etc to
+    <a href="mailto:erin_dot_lynn_dot_root_at_gmail_dot_com" style=
+       "text-decoration:none">the creator</a>.
+
+    <p>Enjoy.</p>
+{% endblock %}

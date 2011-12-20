@@ -1,0 +1,231 @@
+/* adapted from worrydream.com/TenBrighterIdeas */
+  
+<!DOCTYPE HTML>
+* { margin: 0; padding: 0; }
+
+/*-------------------------------*/
+/* body */
+
+body {
+    background: #fff;
+        font: 12px "Helvetica-Neue", "Arial", sans-serif;
+    width: 1100px;
+        font-weight: normal;
+        color: #000;
+        margin-top: 20px;
+        margin-left: auto;
+        margin-right: auto;
+}
+
+/*------------------------------*/
+/* header */
+
+#header {
+    position: absolute;
+}
+
+#header h1 {
+        font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", "Arial", sans-serif;
+        font-weight: 300;
+    font-size: 24px;
+    color: #000;
+}
+
+#header h2 {
+        margin-top: -4px;
+        font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", "Arial", sans-serif;
+        font-weight: 300;
+    font-size: 24px;
+    color: #000;
+
+}
+
+#header h3 {
+        font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", "Arial", sans-serif;
+        font-weight: 300;
+    font-size: 11px;
+    color: #aaa;    
+}
+
+/*------------------------------*/
+/* intro */
+
+#intro {
+        font-family: "Helvetica-Neue", "Arial", sans-serif;
+    margin-left: 433px;
+    margin-bottom: 30px;
+        color: #777;
+    width: 600px;
+    line-height: 1.8;
+}
+
+#intro p {
+    margin-top:10px;
+    margin-bottom:10px;
+}
+
+#intro strong {
+    font-weight:bold;
+	color: #000;
+}
+
+#intro a { text-decoration:underline; color: #77a; border:none; }
+#intro a:hover   { text-decoration:underline; color: #58f; }
+
+
+/* ----------------------------- */
+/* main  */
+
+#main {
+	width: 1100px;
+	border-top: 2px solid #000;
+}
+
+
+/* ----------------------------- */
+/* brochure  */
+
+#brochure {
+
+	font-size: 12px;
+	line-height: 1;
+	color: #777;
+}
+
+.brochureHeader {
+	font-weight: bold;
+	color: #000;
+	font-size:12px;
+	margin-top: -18px;
+	margin-bottom:4px;
+}
+
+.brochureBody {
+
+	padding-top:16px;
+	border-top: 1px solid #000;
+
+}
+
+.brochureIdea {
+	width: 300px;
+	margin-left:25px;
+	margin-bottom:20px;
+	padding-bottom: 20px;
+	border-bottom: 1px solid #ddd;
+}
+
+.brochureIdea b {
+	font-weight: bold;
+	color: #222;
+}
+
+.brochureComment {
+	margin-top: 6px;
+	line-height: 1.7;
+}
+
+.brochureClaim {
+	margin-top: 6px;
+	line-height: 1.7;
+}
+
+
+
+/* ----------------------------- */
+/* analysis  */
+
+#analyses {
+}
+
+.analysis {
+	position:absolute;
+	display: none;
+	margin-top: 24px;
+	padding-left:20px;
+	margin-left: 370px;
+	width: 420px;
+	font-size: 12px;
+	color: #777;
+}
+
+.analysis h2 {
+	font-size:13px;
+	font-weight:bold;
+	margin-left:-20px;
+	margin-bottom:5px;
+	color: #000;
+}
+
+.analysisSection {
+	margin-bottom:20px;
+}
+
+.analysisText {
+	line-height: 1.6;
+}
+
+.c_backgroundHighlight {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.analysisSubtext {
+	line-height: 1.6;
+	margin-left:10px;
+	color: #bbb;
+	font-size: 11px;
+}
+
+.analysisContext {
+	margin-left:90px;
+	margin-bottom:36px;
+}
+
+.analysisContextIcon {
+	position:absolute;
+	margin-left: -90px;
+	margin-top:-17px;
+	width:80px;
+	text-align: center;
+}
+
+.analysisContextDynamicIcon {
+	position:absolute;
+	margin-left: -90px;
+	margin-top:-17px;
+	width:80px;
+	height:52px;
+}
+
+#initialAnalysis {
+	position:absolute;
+	display: none;  /* disabled for now */
+	margin-top: 80px;
+	margin-left: 390px;
+	width: 680px;
+	text-align: center;
+	font-size: 13px;
+	color: #ccc;
+}
+
+#defaultAnalysis {
+	position:absolute;
+	display: none;
+	margin-top: 97px;
+	margin-left: 390px;
+}
+
+.result {
+	font-size: 24px;
+	font-weight: bold;
+	color: #58f;
+}
+
+.resultUnits {
+	font-size: 14px;
+	font-weight: bold;
+	color: #58f;
+}
+
+

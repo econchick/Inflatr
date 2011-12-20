@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<!-- do I need to change the declaration? -->
+<html>
+<head>
+    <title>inflatR: Inflation, Personalized.</title>
+    {% load static %}
+    <link rel="stylesheet" href="{{ STATIC_URL }}stylesheet.css" style="text/css">   
+	<style type="text/css">
+		path {
+		    stroke: #aad;
+		    stroke-width: 2;
+		    fill: none;
+		}
+
+		line {
+		    stroke: black;
+		}
+
+		text {
+		    font-family: Arial;
+		    font-size: 9pt;
+		}
+	</style>
+</head>
+
+<body>
+    <!-- header -->
+    <div id="header">
+        <a href="../" style="text-decoration:none">
+        <h1>How expensive is your lifestyle?</h1>
+        <h1>See with <font style="color:#aad">inflatR</font> index!</h1>
+        </a>
+        <h3>beta</h3>
+        <h3><a href="mailto:erin_dot_lynn_dot_root_at_gmail_dot_com">Lynn Root </a>
+            / 2011</h3>
+        <h3>Harvard Extension Student / Babson College '08</h3>
+        <h3><a href="../documentation.html">Documentation</a> /
+            <a href="../design.html">Design</a> /
+            <a href="../calculations.html">Calculations</a></h3>
+    </div>
+    
+    <!-- intro -->
+    <div id="intro">
+        {% block designdoc %}
+        <h2>Welcome!</h2>
+        <p><font style="color:#aad">inflatR.com</font> allows you to understand
+        the inflation that we all face, but personalized for you.  Not
+        everyone experiences inflation the same way.  A single, 30-something
+        bachelor doesn't feel the same pinch of inflation as a retiree.
+        </p>
+        <p>Guide yourself through the form below, select your respective
+        demographics and estimation of monthly expenses.  After the submission
+        of the form, you will be presented with a graph that articulates a
+        personalized inflation over time, compared to the US as well as your
+        respective region.  Feel free to play around to see how different
+        elements affect your graph output.
+        </p>
+        <p>Please note that this site is in beta, and therefore the estimation
+        calculations, as well as the website application mechanics, are still
+        rough around the edges (and maybe throughout).</p>
+        <br>
+        {% endblock %}
+            
+    </div>
+
+    <!-- main -->
+    <div id="brochure">
+        <div class="brochureHeader">
+            {% block head %}{% endblock %}
+        </div>
+        <div class="brochureBody">
+        {% block content %}{% endblock %}
+        </div>
+    </div>
+    <div id="analyses">
+        <div class="analysis">
+            {% block graph %}{% endblock %}
+        </div>
+    </div>
+        
+    
+  
+
+
+
+</body>
+</html>
