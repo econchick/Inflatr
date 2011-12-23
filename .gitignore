@@ -1,2 +1,4 @@
 *.pyc
-*.DS_store
+*.DS_Store*
+settings.py
+analysis/*
